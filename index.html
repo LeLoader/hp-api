@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
+    <title>Harry Potter API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="image/logo.png" alt="Harry Potter" class="logo">
+    </header>
+    <main>
+        <div class="stickyBand">
+            <!--Sort/Search-->
+            <div class="stickyBandSubdiv">
+                <div>
+                    <select name="sortMenu" class="sort">
+                        <option value="name" selected>Name</option>
+                        <option value="age">Age</option>
+                        <option value="house">House</option>
+                        <optgroup label="House">
+                            <option value="Gryffindor">Gryffindor</option>
+                            <option value="Hufflepuff">Hufflepuff</option>
+                            <option value="Ravenclaw">Ravenclaw</option>
+                            <option value="Slytherin">Slytherin</option>
+                            <option value="houseless">Houseless</option>
+                        </optgroup>
+                    </select>
+                    <label for="reversed">Reversed</label>
+                    <input type="checkbox" id="reversed">
+                </div>
+                <input type="search" placeholder="Enter name to search" class="search">
+            </div>
+        </div>
+        <!--CARDS-->
+        <div class="cards">
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
