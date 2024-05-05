@@ -26,7 +26,41 @@ function Filter(array, request, type) {
             return element;
         });
     }
+}
+
+async function GetMyId() {
+    const token = localStorage.getItem("token");
+  
+    const response = await fetch("http://localhost:3000/getMyProfile", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  
+    if (response.status == 200) {
+      const data = await response.json();
+      return data.id;
+    }
+    else{
+        return 4;
+    }
   }
+  
+  function UpdateLastHouse(id) {
+    let baseUrl = "http://localhost:3000/users/" + id;
+    return fetch(baseUrl, {
+      method: "PUT",
+      body: JSON.stringify({
+        house: "stop",
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+  
+  DisplayCharacters();
+  
 
 function GetCharacters(){
     return fetch("https://hp-api.lainocs.fr/characters")
@@ -37,6 +71,7 @@ async function DisplayCharacters(){
     originalData = await GetCharacters()
     modifiableData, houseData = originalData;
     SortByType("name");
+    UpdateLastHouse(await GetMyId());
 }
 
 function SortByName(value){
